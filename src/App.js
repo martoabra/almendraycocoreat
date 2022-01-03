@@ -38,7 +38,6 @@ function App() {
   return (
     <><Router>
           <Navbar />
-          HOLA
       </Router>
       <div className='row'>
       <Main onAdd={onAdd} products={products}></Main>
