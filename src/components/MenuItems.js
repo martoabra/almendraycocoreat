@@ -1,12 +1,14 @@
 export const MenuItems = [
     {
+      id: '1',
       title: 'Queso',
-      path: '/queso',
-      cName: 'dropdown-link'
+      description: "Productos en base lacteos"
     },
     {
+      id: '2',
       title: 'Chocolate',
-      path: '/chocolate',
-      cName: 'dropdown-link'
+      description: "Productos en base de chocolate"
     },
   ];
+
+

@@ -6,6 +6,9 @@ import data from './data';
 import Main from './components/Main';
 import Basket from './components/Basket';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import Categorias from "./components/Categorias";
+import { MenuItems } from './components/MenuItems';
+
 
 function App() {
     const {products} = data;
@@ -45,12 +48,17 @@ function App() {
             exact path="/"
             element={<Main onAdd={onAdd} products={products}></Main>}
           />
-      <Route exact path="/cart"
+      <Route exact path="/Basket"
           element={  <Basket onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}></Basket>}
       />
       <Route exact path="/Product/:id"
           element={  <ItemDetailContainer onAdd={onAdd} products={products} />}
      />
+             <Route
+          exact
+          path="/MenuItems/:id"
+          element={<Categorias onAdd={onAdd} products={products} MenuItems={MenuItems} />}
+        />
       </Routes>
       </BrowserRouter>
       </>
