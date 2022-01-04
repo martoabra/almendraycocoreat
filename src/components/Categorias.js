@@ -11,7 +11,7 @@ export default function Categorias (props){
    return <main className="block col-2">
         <h2>Productos</h2>
         <div className="row">
-            {products.map((product) =>(product.categoria === MenuItems.id &&
+            {products.map((product) =>(product.categoria === id &&
                 <Product key={product.id} product={product} onAdd={onAdd} MenuItems={categoria}/>
             ))}
         </div>
