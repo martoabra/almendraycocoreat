@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, BrowserRouter, Routes } from 'react-router-dom';
 import data from './data';
 import Main from './components/Main';
 import Basket from './components/Basket';
+import ItemDetailContainer from './components/ItemDetailContainer';
 
 function App() {
     const {products} = data;
@@ -36,15 +37,26 @@ function App() {
     }
 
   return (
-    <><Router>
-          <Navbar />
-      </Router>
-      <div className='row'>
-      <Main onAdd={onAdd} products={products}></Main>
-      <Basket onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}></Basket>
-      </div>
+    <> 
+    <BrowserRouter>
+        <Navbar/> 
+          <Routes>
+          <Route
+            exact path="/"
+            element={<Main onAdd={onAdd} products={products}></Main>}
+          />
+      <Route exact path="/cart">
+            <Basket onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}></Basket>
+      </Route> 
+      <Route exact path="/Product/:id"
+          element={  <ItemDetailContainer onAdd={onAdd} products={products} />}
+     />
+      </Routes>
+      </BrowserRouter>
       </>
   );
 }
+
+
 
 export default App;

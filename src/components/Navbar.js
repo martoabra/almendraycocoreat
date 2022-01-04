@@ -85,7 +85,8 @@ function Navbar() {
             </Link>
           </li>
         </ul>
-        <CartWidget />
+        <Link to='/Basket' >
+        <CartWidget /></Link>
       </nav>
     </>
   );
