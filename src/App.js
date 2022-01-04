@@ -45,9 +45,9 @@ function App() {
             exact path="/"
             element={<Main onAdd={onAdd} products={products}></Main>}
           />
-      <Route exact path="/cart">
-            <Basket onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}></Basket>
-      </Route> 
+      <Route exact path="/cart"
+          element={  <Basket onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}></Basket>}
+      />
       <Route exact path="/Product/:id"
           element={  <ItemDetailContainer onAdd={onAdd} products={products} />}
      />
