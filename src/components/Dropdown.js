@@ -15,9 +15,8 @@ function Dropdown() {
         onClick={handleClick}
         className={click ? 'dropdown-menu clicked' : 'dropdown-menu'}
       >
-        {MenuItems && MenuItems.map((Product) => {
-          return (
-            <ul className="">
+       
+           
             
         {MenuItems &&
           MenuItems.map((MenuItems) => (
@@ -27,9 +26,9 @@ function Dropdown() {
                   
             </Link>
           ))}
-        </ul>
-          );
-        })}
+        
+          
+        
       </ul>
     </>
   );

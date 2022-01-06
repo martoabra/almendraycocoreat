@@ -65,7 +65,7 @@ function Navbar() {
           </li>
           <li className='nav-item'>
             <Link
-              to='/contact-us'
+              to='/Construccion'
               className='nav-links'
               onClick={closeMobileMenu}
             >
@@ -82,7 +82,7 @@ function Navbar() {
             </Link>
           </li>
         </ul>
-        <Link to='/Basket' >
+        <Link to='/Basket'  className='nav-links'>
         <CartWidget /></Link>
       </nav>
     </>

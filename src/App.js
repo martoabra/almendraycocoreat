@@ -8,6 +8,7 @@ import Basket from './components/Basket';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Categorias from "./components/Categorias";
 import { MenuItems } from './components/MenuItems';
+import Construccion from './components/Construccion';
 
 
 function App() {
@@ -58,6 +59,11 @@ function App() {
           exact
           path="/MenuItems/:id"
           element={<Categorias onAdd={onAdd} products={products} MenuItems={MenuItems} />}
+        />
+        <Route
+          exact
+          path="/Construccion"
+          element={<Construccion />}
         />
       </Routes>
       </BrowserRouter>
