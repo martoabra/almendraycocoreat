@@ -43,7 +43,7 @@ function App() {
   return (
     <> 
     <BrowserRouter>
-    <cartContext.Provider value={products} >
+    
         <Navbar/> 
           <Routes>
           <Route
@@ -67,7 +67,7 @@ function App() {
           element={<Construccion />}
         />
       </Routes>
-      </cartContext.Provider>
+    
       </BrowserRouter>
       </>
   );

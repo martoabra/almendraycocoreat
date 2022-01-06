@@ -1,4 +1,4 @@
-import react from "react";
+import react, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { MenuItems } from "./MenuItems";
 import Product from "./Product";
