@@ -9,7 +9,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import Categorias from "./components/Categorias";
 import { MenuItems } from './components/MenuItems';
 import Construccion from './components/Construccion';
-
+import cartContext from './components/context/cartContext';
 
 function App() {
     const {products} = data;
@@ -43,6 +43,7 @@ function App() {
   return (
     <> 
     <BrowserRouter>
+    <cartContext.Provider value={products} >
         <Navbar/> 
           <Routes>
           <Route
@@ -66,6 +67,7 @@ function App() {
           element={<Construccion />}
         />
       </Routes>
+      </cartContext.Provider>
       </BrowserRouter>
       </>
   );
