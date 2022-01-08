@@ -1,10 +1,13 @@
-import React from "react";
-import { Children } from "react/cjs/react.production.min";
+import React, { useState } from "react";
 
-function cartContext(params){
-    const ThemeContext = React.createContext ([])
+export const CartContext = React.createContext();
 
-    return  ThemeContext
+export const CartProvider = (props) => {
+    const [cartItems, setCartItems] = useState([]);
+    return (
+        <CartContext.Provider value={[cartItems, setCartItems]}>
+        {props.children}
+        </CartContext.Provider>
+    )
 }
 
-export default cartContext

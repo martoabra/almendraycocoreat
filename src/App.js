@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Navbar from './components/Navbar';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, BrowserRouter, Routes } from 'react-router-dom';
@@ -9,10 +9,22 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import Categorias from "./components/Categorias";
 import { MenuItems } from './components/MenuItems';
 import Construccion from './components/Construccion';
-import cartContext from './components/context/cartContext';
+import {CartProvider} from './components/context/CartContext'
+import {CartContext } from './components/context/CartContext'
 
 function App() {
     const {products} = data;
+    const [cartItems, setCartItems] = useContext(CartContext);
+    const onAdd = () => {
+      const carrito = {name: products.name, price: products.price};
+      setCartItems (curr => [...curr, carrito] );
+    }
+    const onRemove = () => {
+
+    }
+  
+  
+    /*
     const [cartItems, setCartItems] = useState ([]);
     const onAdd = (product) => {
         const exist = cartItems.find(x => x.id === product.id)
@@ -23,7 +35,9 @@ function App() {
                  )
                  );
         } else {
-            setCartItems([...cartItems, { ...product, qty: 1}])
+           // 
+           const carrito = {name: product.name, price: product.price};
+           setCartItems([...cartItems, { ...product, qty: 1}])
         }
     };
     const onRemove = (product) => {
@@ -39,8 +53,9 @@ function App() {
 
         }
     }
-
+*/
   return (
+    <CartProvider>
     <> 
     <BrowserRouter>
     
@@ -70,6 +85,7 @@ function App() {
     
       </BrowserRouter>
       </>
+      </CartProvider>
   );
 }
 

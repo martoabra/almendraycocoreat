@@ -1,7 +1,10 @@
-import react from "react";
+import react, { useContext } from "react";
+import { CartContext } from "./context/CartContext";
+
 
 export default function Basket (props){
    const {cartItems, onAdd, onRemove} = props;
+   const contextValue = useContext(CartContext);
    return ( 
    <aside className="block col-1">
         <h2>Carrito</h2>
@@ -20,6 +23,12 @@ export default function Basket (props){
             </div>
             </div>
         ))}
+         <div>
+            <span>item in cart : {cartItems.length}</span>
+            <br/>
+            <span>total price : 0 {contextValue}</span>
+        </div>
     </aside>
    );
 }
+
