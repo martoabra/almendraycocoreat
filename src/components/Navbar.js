@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { CartWidget } from './CartWidget';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import Dropdown from './Dropdown';
 import logo from '../assets/logo.png'
+import CartContext from '../context/cart/CartContext';
 
 function Navbar() {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+  const {cartItems, showHideCart} = useContext(CartContext)
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -82,8 +84,8 @@ function Navbar() {
             </Link>
           </li>
         </ul>
-        <Link to='/Basket'  className='nav-links'>
-        <CartWidget /></Link>
+        <div className='nav-links'>
+        <CartWidget cartItems={cartItems} onClick={showHideCart}/></div>
       </nav>
     </>
   );

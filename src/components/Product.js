@@ -10,7 +10,7 @@ export default function Product (props){
        <h3>{product.name}</h3>
        <div>${product.price}</div>
        <div>
-           <button onClick={()=>onAdd(product)} > Ver detalle</button>
+           <button  > Ver detalle</button>
        </div>
         </div>
     </Link>)

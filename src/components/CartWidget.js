@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Button.css';
 import { Link } from 'react-router-dom';
+import CartContext from '../context/cart/CartContext';
 
 export function CartWidget() {
+  const {cartItems, showHideCart} = useContext(CartContext)
   return (
-    <Link to='/Basket'>
-      <button className='btn'><i class="fas fa-shopping-cart"></i></button>
-    </Link>
+  
+      <button className='btn' onClick={showHideCart}>
+        {cartItems.length > 0 && (
+          <div className='item__count'> 
+          <span>{cartItems.length}</span>
+          </div>
+        )
+        } <i class="fas fa-shopping-cart">
+        </i></button>
+  
   );
 }

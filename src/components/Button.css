@@ -23,3 +23,18 @@
     border: 2px solid var(--primary);
     transition: all 0.3s ease-out;
   }
+
+  .item__count {
+    
+    display: grid;
+    place-items: center;
+    background-color: red;
+    z-index: 10;
+    border-radius: 50%;
+    font-size: 10px;
+    height: 14px;
+    width: 14px;
+    top: -50%;
+    right: -50%;
+    margin-inline-start: auto;
+  }

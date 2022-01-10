@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, BrowserRouter, Routes } from 'react-router-dom';
@@ -9,23 +9,12 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import Categorias from "./components/Categorias";
 import { MenuItems } from './components/MenuItems';
 import Construccion from './components/Construccion';
-import {CartProvider} from './components/context/CartContext'
-import {CartContext } from './components/context/CartContext'
+import cartContext from './context/cart/CartContext';
+
 
 function App() {
     const {products} = data;
-    const [cartItems, setCartItems] = useContext(CartContext);
-    const onAdd = () => {
-      const carrito = {name: products.name, price: products.price};
-      setCartItems (curr => [...curr, carrito] );
-    }
-    const onRemove = () => {
-
-    }
-  
-  
-    /*
-    const [cartItems, setCartItems] = useState ([]);
+    /* const [cartItems, setCartItems] = useState ([]);
     const onAdd = (product) => {
         const exist = cartItems.find(x => x.id === product.id)
         if (exist){
@@ -35,9 +24,7 @@ function App() {
                  )
                  );
         } else {
-           // 
-           const carrito = {name: product.name, price: product.price};
-           setCartItems([...cartItems, { ...product, qty: 1}])
+            setCartItems([...cartItems, { ...product, qty: 1}])
         }
     };
     const onRemove = (product) => {
@@ -53,28 +40,28 @@ function App() {
 
         }
     }
-*/
+    */
+
   return (
-    <CartProvider>
     <> 
     <BrowserRouter>
     
-        <Navbar/> 
+        <Navbar/>   
+        <Basket />
           <Routes>
           <Route
             exact path="/"
-            element={<Main onAdd={onAdd} products={products}></Main>}
+            element={<Main  products={products}></Main>}
           />
-      <Route exact path="/Basket"
-          element={  <Basket onAdd={onAdd} onRemove={onRemove} cartItems={cartItems}></Basket>}
-      />
+   
+      
       <Route exact path="/Product/:id"
-          element={  <ItemDetailContainer onAdd={onAdd} products={products} />}
+          element={  <ItemDetailContainer products={products} />}
      />
              <Route
           exact
           path="/MenuItems/:id"
-          element={<Categorias onAdd={onAdd} products={products} MenuItems={MenuItems} />}
+          element={<Categorias  products={products} MenuItems={MenuItems} />}
         />
         <Route
           exact
@@ -85,7 +72,6 @@ function App() {
     
       </BrowserRouter>
       </>
-      </CartProvider>
   );
 }
 

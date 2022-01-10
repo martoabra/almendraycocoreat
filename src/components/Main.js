@@ -4,11 +4,10 @@ import { MenuItems } from "./MenuItems";
 import Product from "./Product";
 
 
-
 export default function Main (props){
    const {products, onAdd} = props;
    const { id, categoria} = useParams();
-
+ 
 
    return <main className="block col-2">
         <h2>Productos</h2>
