@@ -1,4 +1,10 @@
-import { SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEM, REST_TO_CART, AGRE_TO_CART } from "../Types";
+import {
+  SHOW_HIDE_CART,
+  ADD_TO_CART,
+  REMOVE_ITEM,
+  REST_TO_CART,
+  VACIAR_CART,
+} from "../Types";
 
 const CartReducer = (state, action) => {
   switch (action.type) {
@@ -29,32 +35,33 @@ const CartReducer = (state, action) => {
       };
     }
 
-    case REST_TO_CART: { 
-      const exist = state.cartItems.find((x) => x.id === action.payload.id);
+    case REST_TO_CART: {
+      let newCartItems = state.cartItems;
+      newCartItems.map((x) => {
+        if (x.id === action.payload.id) {
+          x.qty--;
+        }
+        return x;
+      });
+
       return {
-      ...state,
-      cartItems: state.cartItems.find(
-        (item) => item.id === item.qty--
-      ),
-    };
+        ...state,
+        /* cartItems: [...state.cartItems, action.payload], */
+        cartItems: newCartItems,
+      };
     }
 
-    case AGRE_TO_CART: { 
+    case VACIAR_CART: {
       return {
-      ...state,
-      cartItems: state.cartItems.find(
-        (item) => item.id === item.qty++
-      ),
-    };
+        ...state,
+        cartItems: [],
+      };
     }
-
 
     case REMOVE_ITEM: {
       return {
         ...state,
-        cartItems: state.cartItems.filter(
-          (item) => item.id !== action.payload
-        ),
+        cartItems: state.cartItems.filter((item) => item.id !== action.payload),
       };
     }
 

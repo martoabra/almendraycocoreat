@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import CartContext from "./CartContext";
 import CartReducer from "./CartReducer"
-import {SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEM, REST_TO_CART, AGRE_TO_CART} from "../Types"
+import {SHOW_HIDE_CART, ADD_TO_CART, REMOVE_ITEM, REST_TO_CART, VACIAR_CART} from "../Types"
 
 const CartState = ({ children }) => {
     const initalState = {
@@ -16,8 +16,8 @@ const CartState = ({ children }) => {
       dispatch({ type: ADD_TO_CART, payload: item });
     };
 
-    const agregToCart = (item) => {
-      dispatch({ type: AGRE_TO_CART, payload: item });
+    const VaciarCart = (item) => {
+      dispatch({ type: VACIAR_CART, payload: item });
     };
 
     const restToCart = (item) => {
@@ -39,7 +39,7 @@ const CartState = ({ children }) => {
           cartItems: state.cartItems,
           addToCart,
           restToCart,
-          agregToCart,
+          VaciarCart,
           showHideCart,
           removeItem,
         }}

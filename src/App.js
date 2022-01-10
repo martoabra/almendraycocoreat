@@ -9,6 +9,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import Categorias from "./components/Categorias";
 import { MenuItems } from './components/MenuItems';
 import Construccion from './components/Construccion';
+import Fin from './components/Fin';
 import cartContext from './context/cart/CartContext';
 
 
@@ -67,6 +68,11 @@ function App() {
           exact
           path="/Construccion"
           element={<Construccion />}
+        />
+      <Route
+          exact
+          path="/Fin"
+          element={<Fin/>}
         />
       </Routes>
     
