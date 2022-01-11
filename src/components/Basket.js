@@ -82,7 +82,9 @@ const Basket = (props) => {
             Vaciar
           </button>
           <Link to="/Fin">
-          {<button onClick={() => VaciarCart()}>Comprar</button> }</Link>
+          <button 
+          onClick={() => {VaciarCart()}}       
+          >Comprar</button></Link>
         </div>
       )}
     </>

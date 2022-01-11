@@ -1,4 +1,27 @@
-const data = {
+import {doc, getDoc, getFirestore} from "firebase/firestore"
+
+
+export default function data (){
+
+const data = [];
+const [stateData, setStateData] = useState([]);
+
+useEffect (() => {
+    const db = getFirestore();
+
+    const data = doc(db, "items", "xM4JF8qfH8M5M14IfJaG");
+    getDoc(data).then((snapshot)=>{
+        console.log(snapshot.data())
+            setStateData ([data=snapshot.data()]);
+    });
+}, []);
+
+
+}
+
+
+  
+  /*
     products: [
       {
         id: '1',
@@ -55,5 +78,4 @@ const data = {
         qty: 0,
       }
     ],
-  };
-  export default data;
+  */
