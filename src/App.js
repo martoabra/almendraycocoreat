@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  BrowserRouter,
-  Routes,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, BrowserRouter, Routes,} from "react-router-dom";
 import Datos from "./data";
 import Main from "./components/Main";
 import Basket from "./components/Basket";
