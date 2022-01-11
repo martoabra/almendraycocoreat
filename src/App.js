@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, BrowserRouter, Routes } from 'react-router-dom';
-import data from './data';
+import { getProducts as products } from "./data"
 import Main from './components/Main';
 import Basket from './components/Basket';
 import ItemDetailContainer from './components/ItemDetailContainer';
@@ -14,7 +14,7 @@ import cartContext from './context/cart/CartContext';
 
 
 function App() {
-    const {products} = data;
+    const {products} = products;
     /* const [cartItems, setCartItems] = useState ([]);
     const onAdd = (product) => {
         const exist = cartItems.find(x => x.id === product.id)
