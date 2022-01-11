@@ -1,21 +1,41 @@
-import React, { useState } from 'react';
-import Navbar from './components/Navbar';
-import './App.css';
-import { BrowserRouter as Router, Switch, Route, BrowserRouter, Routes } from 'react-router-dom';
-import { getProducts as products } from "./data"
-import Main from './components/Main';
-import Basket from './components/Basket';
-import ItemDetailContainer from './components/ItemDetailContainer';
+import React, { useState } from "react";
+import Navbar from "./components/Navbar";
+import "./App.css";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  BrowserRouter,
+  Routes,
+} from "react-router-dom";
+import Datos from "./data";
+import Main from "./components/Main";
+import Basket from "./components/Basket";
+import ItemDetailContainer from "./components/ItemDetailContainer";
 import Categorias from "./components/Categorias";
-import { MenuItems } from './components/MenuItems';
-import Construccion from './components/Construccion';
-import Fin from './components/Fin';
-import cartContext from './context/cart/CartContext';
-
+import { MenuItems } from "./components/MenuItems";
+import Construccion from "./components/Construccion";
+import Fin from "./components/Fin";
+import cartContext from "./context/cart/CartContext";
+import { useEffect } from "react";
+import { doc, getFirestore } from "firebase/firestore";
+import { collection, getDoc, getDocs } from "firebase/firestore";
+import { setDoc } from "firebase/firestore";
 
 function App() {
-    const {products} = products;
-    /* const [cartItems, setCartItems] = useState ([]);
+  const data = [];
+  const [products, setProducts] = useState([]);
+  const [ordenes, setOrdenes] = useState([]);
+  const db = getFirestore();
+  useEffect(() => {
+    const data = collection(db, "products");
+    getDocs(data).then((res) => {
+      console.log(res.docs);
+      console.log(res.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+      setProducts(res.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+    });
+  }, []);
+  /* const [cartItems, setCartItems] = useState ([]);
     const onAdd = (product) => {
         const exist = cartItems.find(x => x.id === product.id)
         if (exist){
@@ -42,7 +62,6 @@ function App() {
         }
     }
     */
-
   return (
     <> 
     <BrowserRouter>
