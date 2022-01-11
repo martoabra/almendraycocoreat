@@ -1,43 +1,31 @@
+import {doc, getFirestore} from "firebase/firestore"
 import { useEffect, useState } from "react";
-import { collection, getDocs, getFirestore} from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
+
 
 export default function Datos (){
-
 const db = getFirestore();
-
-
-const querySnapshot = await getDocs(collection(db, "products"));
-querySnapshot.forEach((doc) => {
-  // doc.data() is never undefined for query doc snapshots
-  console.log(doc.id, " => ", doc.data());
-});
-
-}
-
-
-/*
-
 const dato = [];
 const [stateData, setStateData] = useState([]);
-
+    
 
 
 
 useEffect (() => {
   const fetchData = async() => {
-      const db = getFirestore();
-      const data = doc(db, "items", "xM4JF8qfH8M5M14IfJaG");
-      await getDoc(data).then((snapshot)=>{
-          console.log(snapshot.data())
-          setStateData ([data=snapshot.data()]);
-          console.log("hola",data)
-       })
+  const db = getFirestore();    
+  const data = collection(db, "products")
+        getDocs(data).then((res)=>{
+            console.log(res.docs)
+            console.log(res.docs.map((doc)=>({id: doc.id, ...doc.data()})))
+            setStateData(res.docs.map((doc)=>({id: doc.id, ...doc.data()})))
+        })
+       
   }
   ;
 }, []); 
 }
-
-  
+  /*
     products: [
       {
         id: '1',
