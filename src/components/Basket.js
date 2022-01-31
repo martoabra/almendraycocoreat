@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { doc, getFirestore } from "firebase/firestore";
 import { collection, getDoc, getDocs } from "firebase/firestore";
 import { setDoc } from "firebase/firestore";
+import {form} from "./Fin"
+
 
 const Basket = (props) => {
   const {

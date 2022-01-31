@@ -20,7 +20,7 @@ const CartReducer = (state, action) => {
       if (exist) {
         newCartItems.map((x) => {
           if (x.id === action.payload.id) {
-            x.qty++;
+            x.qty = x.qty + 1/2;
           }
           return x;
         });
@@ -30,7 +30,7 @@ const CartReducer = (state, action) => {
 
       return {
         ...state,
-        /* cartItems: [...state.cartItems, action.payload], */
+       
         cartItems: newCartItems,
       };
     }
@@ -39,14 +39,14 @@ const CartReducer = (state, action) => {
       let newCartItems = state.cartItems;
       newCartItems.map((x) => {
         if (x.id === action.payload.id) {
-          x.qty--;
+          x.qty = x.qty - 1/2;;
         }
         return x;
       });
 
       return {
         ...state,
-        /* cartItems: [...state.cartItems, action.payload], */
+        
         cartItems: newCartItems,
       };
     }
