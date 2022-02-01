@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/almendraycocoreat/static/css/main.19751bb7.css",
+    "main.js": "/almendraycocoreat/static/js/main.1cb11fe9.js",
+    "static/js/787.df81773f.chunk.js": "/almendraycocoreat/static/js/787.df81773f.chunk.js",
+    "static/media/fotojenny.png": "/almendraycocoreat/static/media/fotojenny.e5f7dcadba32be16dab9.png",
+    "static/media/logo.png": "/almendraycocoreat/static/media/logo.a6b12375c4f335d91b8b.png",
+    "index.html": "/almendraycocoreat/index.html",
+    "main.19751bb7.css.map": "/almendraycocoreat/static/css/main.19751bb7.css.map",
+    "main.1cb11fe9.js.map": "/almendraycocoreat/static/js/main.1cb11fe9.js.map",
+    "787.df81773f.chunk.js.map": "/almendraycocoreat/static/js/787.df81773f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.19751bb7.css",
+    "static/js/main.1cb11fe9.js"
+  ]
+}
