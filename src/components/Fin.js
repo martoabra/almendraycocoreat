@@ -2,6 +2,7 @@ import react, { useEffect, useState, useContext } from "react";
 import { doc, getDoc, getFirestore, collection, getDocs } from "firebase/firestore";
 import CartContext from "../context/cart/CartContext";
 import { setDoc } from "firebase/firestore";
+import Basket from "./Basket";
 
 
 
@@ -122,6 +123,8 @@ useEffect (() => {
           </button>
         )}
         </forms>
+       <div><Basket/></div>
+
     </main>;
 
 }

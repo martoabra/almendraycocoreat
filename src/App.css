@@ -5,3 +5,17 @@
   font-family: 'PT Sans', sans-serif;
 }
 
+.quienes {
+display: flex;
+}
+
+.fotoQuienes {
+  width: 80%;
+  display: flex;
+}
+
+.textoQuienes {
+margin: 1rem;
+padding: 1rem;
+  font-family: 'PT Sans', sans-serif;
+}
