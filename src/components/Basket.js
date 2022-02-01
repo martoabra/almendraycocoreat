@@ -94,7 +94,7 @@ const Basket = (props) => {
           </button>
           <Link to="/Fin">
             <button
-
+  onClick={showHideCart}
             >
               Comprar
             </button>

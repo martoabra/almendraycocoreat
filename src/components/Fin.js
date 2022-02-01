@@ -3,6 +3,8 @@ import { doc, getDoc, getFirestore, collection, getDocs } from "firebase/firesto
 import CartContext from "../context/cart/CartContext";
 import { setDoc } from "firebase/firestore";
 import Basket from "./Basket";
+import "../App.css";
+import { Link } from "react-router-dom";
 
 
 
@@ -15,7 +17,7 @@ email: "",
 email2: "",});
   const [ordenes, setOrdenes] = useState([]);
   const db = getFirestore();
-  const { cartItems, VaciarCart, } = useContext(CartContext);
+  const { cartItems, VaciarCart, restToCart, removeItem, addToCart } = useContext(CartContext);
 
   const traerOrdenes = () => {
     const dataOrdnes = collection(db, "ordenes");
@@ -91,6 +93,8 @@ useEffect (() => {
 
    return <main className="block col-2">
        <h2>Ingrese sus datos para finalizar la compra</h2>
+       <h6>El boton de compra se habilitara una vez que los campos esten completos</h6>
+       <br/><br/>
         <forms>
             <label htmlFor="nombre">Nombre y Apellido</label>
             <input type="text" id="nombre" name="nombre" value={form.nombre} onChange={handleChange
@@ -111,6 +115,7 @@ useEffect (() => {
           <br/>
           <br/>
           {datosIngresados() && emailIguales() && (
+            <Link to="/">
           <button
             onClick={() => {
               setearDocumento();VaciarCart();
@@ -121,10 +126,33 @@ useEffect (() => {
           >
             Realizar compra
           </button>
+          </Link>
         )}
         </forms>
-       <div><Basket/></div>
-
+       
+       <div className="miniCarrito">
+            <h2>Carrito</h2>
+            <div className="row">
+              {cartItems.length === 0 && (
+                <div>
+                  <h2>El Carrito esta vacio</h2>
+                  <Link to="/">
+                    <button className="btn">Ver Productos</button>
+                  </Link>
+                </div>
+              )}
+            </div>
+            {cartItems.map((item) => (
+              <div key={item.id} className="row">
+                <div className="col-2">{item.name}</div>
+                <div className="col-2 text-right">
+                  {item.qty} * {item.price}
+                </div>
+              </div>
+            ))}
+          
+          <div>Total del carrito: $ {totales()}</div>
+</div>  
     </main>;
 
 }

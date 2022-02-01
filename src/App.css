@@ -19,3 +19,11 @@ margin: 1rem;
 padding: 1rem;
   font-family: 'PT Sans', sans-serif;
 }
+
+.miniCarrito {
+  display:table;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: beige;
+}
