@@ -20,21 +20,6 @@ const Basket = (props) => {
     VaciarCart,
   } = useContext(CartContext);
 
-  const [ordenes, setOrdenes] = useState([]);
-  const db = getFirestore();
-
-  const traerOrdenes = () => {
-    const dataOrdnes = collection(db, "ordenes");
-    getDocs(dataOrdnes).then((res) => {
-      console.log(res.docs);
-      console.log(res.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
-      setOrdenes(res.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
-    });
-  };
-
-  useEffect(() => {
-    traerOrdenes();
-  }, []);
 
   const totales = () => {
     let total = 0;
@@ -42,23 +27,6 @@ const Basket = (props) => {
     return total;
   };
 
-  let orden = {
-    buyer: { name: "Martin", phone: 48554855, email: "martoo96@gmail.com" },
-    cartItems,
-    total: totales(),
-  };
-
-  const setearDocumento = () => {
-    setDoc(doc(db, "ordenes", `${Object.keys(ordenes).length}`), {
-      orden: orden,
-    });
-    alert(
-      `Gracias por su compra!\n Su número de orden es: ${
-        Object.keys(ordenes).length
-      }`
-    );
-    traerOrdenes();
-  };
 
   return (
     <>
@@ -126,10 +94,7 @@ const Basket = (props) => {
           </button>
           <Link to="/Fin">
             <button
-              onClick={() => {
-                VaciarCart();
-                setearDocumento();
-              }}
+
             >
               Comprar
             </button>

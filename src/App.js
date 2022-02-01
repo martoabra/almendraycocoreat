@@ -7,13 +7,13 @@ import Basket from "./components/Basket";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import Categorias from "./components/Categorias";
 import { MenuItems } from "./components/MenuItems";
-import Construccion from "./components/Construccion";
 import Fin from "./components/Fin";
 import cartContext from "./context/cart/CartContext";
 import { useEffect } from "react";
 import { doc, getFirestore } from "firebase/firestore";
 import { collection, getDoc, getDocs } from "firebase/firestore";
 import { setDoc } from "firebase/firestore";
+import Quienes from "./components/Quienes";
 
 function App() {
   const data = [];
@@ -53,13 +53,13 @@ function App() {
         />
         <Route
           exact
-          path="/Construccion"
-          element={<Construccion />}
+          path="/QuienesSomos"
+          element={<Quienes />}
         />
       <Route
           exact
           path="/Fin"
-          element={<Fin/>}
+          element={<Fin  products={products} MenuItems={MenuItems} />}
         />
       </Routes>
     
