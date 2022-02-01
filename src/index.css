@@ -31,7 +31,7 @@ a {
 }
 .row {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .row.center {
   align-items: center;

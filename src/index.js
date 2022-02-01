@@ -3,10 +3,28 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import CartState from "./context/cart/CartState"
+import {initializeApp} from "firebase/app"
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAoyxOS3ONcRGDpw2dqQ1y9G6YcQJDolpI",
+  authDomain: "coderhouse-react-abramowicz.firebaseapp.com",
+  projectId: "coderhouse-react-abramowicz",
+  storageBucket: "coderhouse-react-abramowicz.appspot.com",
+  messagingSenderId: "995423879394",
+  appId: "1:995423879394:web:ffbf1af889338852dfdebb",
+  measurementId: "G-XJSCQ7F91W"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CartState>
+       <App />
+    </CartState>
   </React.StrictMode>,
   document.getElementById('root')
 );

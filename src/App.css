@@ -5,72 +5,25 @@
   font-family: 'PT Sans', sans-serif;
 }
 
-.home,
-.services,
-.products,
-.contact-us,
-.sign-up,
-.marketing,
-.consulting {
+.quienes {
+display: flex;
+}
+
+.fotoQuienes {
+  width: 80%;
   display: flex;
-  height: 90vh;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
 }
 
-.home {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
+.textoQuienes {
+margin: 1rem;
+padding: 1rem;
+  font-family: 'PT Sans', sans-serif;
 }
 
-.services {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
-}
-
-.products {
-  background-position: center;
-  background-size: fill;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
-}
-
-.contact-us {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
-}
-
-.sign-up {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
-}
-
-.marketing {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
-}
-
-.consulting {
-  background-position: bottom;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
+.miniCarrito {
+  display:table;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: beige;
 }

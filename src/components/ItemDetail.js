@@ -1,7 +1,10 @@
-import react from "react";
+import react, { useContext } from "react";
+import CartContext from "../context/cart/CartContext";
 
 export default function ItemDetail (props){
     const {product, onAdd} = props;
+    const {addToCart} = useContext(CartContext)
+    
     return (
         <div className="row">
             <div className="col-1">
@@ -12,7 +15,7 @@ export default function ItemDetail (props){
        <div><h3>Precio:</h3> $ {product.price}</div>
        <div><h3>Detalle:</h3> {product.detail}</div>
        <div>
-           <button onClick={()=>onAdd(product)} > Añadir al carrito</button>
+           <button onClick={()=>addToCart(product)} > Añadir al carrito</button>
        </div>
         </div>
         </div>

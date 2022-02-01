@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { CartWidget } from './CartWidget';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import Dropdown from './Dropdown';
 import logo from '../assets/logo.png'
+import CartContext from '../context/cart/CartContext';
 
 function Navbar() {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+  const {cartItems, showHideCart} = useContext(CartContext)
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -48,18 +50,15 @@ function Navbar() {
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
           >
-            <Link
-              to='/services'
-              className='nav-links'
-              onClick={closeMobileMenu}
-            >
+            
+            
               Categorias <i className='fas fa-caret-down' />
-            </Link>
+            
             {dropdown && <Dropdown />}
           </li>
           <li className='nav-item'>
             <Link
-              to='/products'
+              to='/'
               className='nav-links'
               onClick={closeMobileMenu}
             >
@@ -68,16 +67,16 @@ function Navbar() {
           </li>
           <li className='nav-item'>
             <Link
-              to='/contact-us'
+              to='/QuienesSomos'
               className='nav-links'
               onClick={closeMobileMenu}
             >
-              Contacto
+              Quienes Somos
             </Link>
           </li>
           <li>
             <Link
-              to='/sign-up'
+              to='/'
               className='nav-links-mobile'
               onClick={closeMobileMenu}
             >
@@ -85,8 +84,8 @@ function Navbar() {
             </Link>
           </li>
         </ul>
-        <Link to='/Basket' >
-        <CartWidget /></Link>
+        <div className='nav-links'>
+        <CartWidget cartItems={cartItems} onClick={showHideCart}/></div>
       </nav>
     </>
   );
