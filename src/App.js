@@ -6,7 +6,7 @@ import Main from "./components/Main";
 import Basket from "./components/Basket";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import Categorias from "./components/Categorias";
-import { MenuItems } from "./components/MenuItems";
+import { MenuItems } from "./components/Categories";
 import Fin from "./components/Fin";
 import cartContext from "./context/cart/CartContext";
 import { useEffect } from "react";
@@ -48,7 +48,7 @@ function App() {
      />
              <Route
           exact
-          path="/MenuItems/:id"
+          path="/Categories/:id"
           element={<Categorias  products={products} MenuItems={MenuItems} />}
         />
         <Route
@@ -58,7 +58,7 @@ function App() {
         />
       <Route
           exact
-          path="/Fin"
+          path="/Cart"
           element={<Fin  products={products} MenuItems={MenuItems} />}
         />
       </Routes>

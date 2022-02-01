@@ -4,6 +4,7 @@ import CartContext from "../context/cart/CartContext";
 export default function ItemDetail (props){
     const {product, onAdd} = props;
     const {addToCart} = useContext(CartContext)
+    
     return (
         <div className="row">
             <div className="col-1">

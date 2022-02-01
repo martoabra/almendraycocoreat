@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MenuItems } from './MenuItems';
+import { MenuItems } from './Categories';
 import './Dropdown.css';
 import { Link } from 'react-router-dom';
 import Product from './Product';
@@ -20,7 +20,7 @@ function Dropdown() {
             
         {MenuItems &&
           MenuItems.map((MenuItems) => (
-            <Link key={MenuItems.id} to={`/MenuItems/${MenuItems.id}`}>
+            <Link key={MenuItems.id} to={`/Categories/${MenuItems.id}`}>
               
                   <li>{MenuItems.title}</li>
                   
