@@ -1,5 +1,0 @@
-export const SHOW_HIDE_CART = 'SHOW_HIDE_CART'
-export const ADD_TO_CART = 'ADD_TO_CART'
-export const REST_TO_CART = 'REST_TO_CART' 
-export const VACIAR_CART = 'VACIAR_CART' 
-export const REMOVE_ITEM = 'REMOVE_ITEM' 
