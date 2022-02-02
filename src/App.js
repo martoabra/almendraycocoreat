@@ -41,6 +41,10 @@ function App() {
             exact path="/"
             element={<Main  products={products}></Main>}
           />
+             <Route
+            exact path="/almendraycocoreat/"
+            element={<Main  products={products}></Main>}
+          />
    
       
       <Route exact path="/Product/:id"
